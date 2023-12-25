@@ -8,6 +8,6 @@ steps:
 # Deploy container image to Cloud Run
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
-  args: ['run', 'deploy', 'my-awesome-app-service', '--image', 'gcr.io/hazel-form-409016/my-app-image', '--region', 'asia-south2(Delhi)']
+  args: ['run', 'deploy', 'my-awesome-app-service', '--image', 'gcr.io/hazel-form-409016/my-app-image', '--region', 'us-central1(Iowa)']
 images:
 - gcr.io/hazel-form-409016/my-app-image
