@@ -1,14 +1,10 @@
 steps:
-# Build the container image
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/hazel-form-409016/my-app-image', '.']
-# Push the container image to Container Registry
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/hazel-form-409016/my-app-image']
-# Deploy container image to Cloud Run
-- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-  entrypoint: gcloud
-  args: ['run', 'deploy', 'my-app-service', '--image', 'gcr.io/hazel-form-409016/my-app-image', '--region', 'asia-south2']
+- name: gcr.io/cloud-builders/git
+  args: ['clone', 'https://github.com/Golusss123/ITP-sample-java-project.git', '.']
+
+- name: 'gcr.io/buildpacks/builder'
+  args: ['build', '-v', '--builder=gcr.io/buildpacks/builder']
 
 images:
-- gcr.io/hazel-form-409016/my-app-image
+- 'gcr.io/$hazel-form-409016/my-app-image'
+
