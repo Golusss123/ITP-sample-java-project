@@ -9,10 +9,10 @@ phases:
       - pip install --upgrade awscli
   pre_build:
     commands:
-      - mvn clean compile test
+      - gradle --version
   build:
     commands:
-      - mvn package
+      - gradle build
 
 artifacts:
   files:
